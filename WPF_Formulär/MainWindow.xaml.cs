@@ -19,7 +19,7 @@ using WPF_Formulär.Models;
 namespace WPF_Formulär
     {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+   
     /// </summary>
     public partial class MainWindow : Window
         {
