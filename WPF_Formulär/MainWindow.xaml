@@ -1,0 +1,140 @@
+﻿<Window x:Class="WPF_Formulär.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Formulär"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="700" Icon="Icons/icon.png"
+        Background="AliceBlue"
+        ResizeMode="NoResize">
+    <Grid Margin="15" Name="MainGrid" Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" ></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Title-->
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="15 ">
+            <ComboBox Height="30" Margin="0,0,5,0" Width="100">
+                <ComboBoxItem Name="comboTelephone" IsSelected="True" >
+                    <Label Content="Telefonnummer" VerticalAlignment="Center"></Label>
+                </ComboBoxItem>
+                <ComboBoxItem Name="comboEmail">
+                    <Label Content="Email" VerticalAlignment="Center"></Label>
+                </ComboBoxItem>
+            </ComboBox>
+            <TextBox Name="txtSearch" Height="30" Width="100" TextAlignment="Center"></TextBox>
+            <Button Name="btnSearch" Content="Sök Användare" Height="30" Width="100" Margin="5,0,0,0" Click="btnSearch_Click"></Button>
+            <Label Visibility="Hidden">
+                <TextBox Name="txtID"  Text="{Binding ID}"></TextBox>
+            </Label>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="Title" Margin="15">
+            <TextBox Text="Intresseformulär" FontSize="30" FontFamily="Calibri" BorderThickness="0" Background="YellowGreen"></TextBox>
+        </TextBlock>
+        <Menu VerticalAlignment="Top" Grid.Row="1" Margin="0,0,0,10">
+            <MenuItem Height="15">
+            </MenuItem>
+        </Menu>
+
+        <!--Person Data-->
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--Personuppgifter-->
+            <GroupBox Grid.Row="0" Header="Personuppgifter" Padding="10" HorizontalAlignment="Left"  Margin="15,0,0,10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Förnamn" Width="95"></Label>
+                        <TextBox Name="txtFörnamn" Text="{Binding Name}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Efternamn" Width="95"></Label>
+                        <TextBox Name="txtEfternamn" Text="{Binding LastName}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Gatuadress" Width="95"></Label>
+                        <TextBox Name="txtGatuaddress" Text="{Binding StreetAddress}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Postnummer" Width="95"></Label>
+                        <TextBox Name="txtPostnummer" Text="{Binding PostalCode}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Ort" Width="95"></Label>
+                        <TextBox Name="txtOrt" Text="{Binding Region}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Epost" Width="95"></Label>
+                        <TextBox Name="txtEpost" Text="{Binding Email}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Mobilnummer" Width="95"></Label>
+                        <TextBox Name="txtMobilnummer" Text="{Binding Phone}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Personnummer" Width="95"></Label>
+                        <TextBox Name="txtPersonnummer" Text="{Binding SocialSecurityNumber}" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="8" Orientation="Horizontal">
+                        <Label Content="Företag" Width="95"></Label>
+                        <TextBox Name="txtFöretag" Text="{Binding Company}" Width="200" TextChanged="txtFöretag_TextChanged"></TextBox>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <!--Birthday Calendar-->
+            <GroupBox HorizontalAlignment="Center" Grid.Column="1" Header="Födelsedatum" Height="190" VerticalAlignment="Top">
+                <StackPanel >
+                    <Calendar Name="calCalendar" SelectedDate="{Binding Birthdate}" BorderThickness="0"></Calendar>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Grid.Row="1" Grid.Column="0" Width="325" HorizontalAlignment="Left" Header="Anteckningar" Margin="15,0,0,0">
+                <RichTextBox Name="txtRichText" Height="150" Width="320" BorderThickness="0"></RichTextBox>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Grid.Row="1" Padding="10" Header="Övrigt" Height="130" VerticalAlignment="Top" Margin="0,0,15,0">
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Privatperson" Width="105"></Label>
+                            <RadioButton Name="radioPrivatPerson" VerticalAlignment="Center" Margin="5,0,0,0" GroupName="radioButtons" Checked="radioPrivatPerson_Checked"></RadioButton>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Företag" Width="105"></Label>
+                            <RadioButton Name="radioFöretagPerson" VerticalAlignment="Center" Margin="5,0,0,0" GroupName="radioButtons" Checked="radioFöretagPerson_Checked"></RadioButton>
+                        </StackPanel>
+                        <Separator></Separator>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Content="Skicka Nyhetsbrev" Width="105"></Label>
+                        <CheckBox Name="checkboxNyhetsbrev" IsChecked="{Binding Subscriber}" VerticalAlignment="Center" Margin="5,0,0,0"></CheckBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <Button Name="btnSubmit" Grid.Row="2" Grid.ColumnSpan="2" Height="40" Margin="0,15,0,0" Width="120" Content="Skicka" FontSize="15" Background="Azure" BorderThickness="0" Click="btnSubmit_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>
